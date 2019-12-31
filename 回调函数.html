@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>111</div>
+    <script>
+        // 函数声明 设置传参 传参可以是变量 也可以是函数
+        function hasPermission(username, callback) {
+            console.log("欢迎来访："+username)
+            setTimeout(() => {
+                var rad = Math.random();
+                if (rad < 0.3) {
+                    console.log(rad)
+                    callback(0)
+                } else if (rad < 0.6) {
+                    console.log(rad)
+                    callback(2)
+                } else {
+                    console.log(rad)
+                    callback(1)
+                }
+            }, 500)
+        }
+        // 不是函数的值从callback传回来而是 把函数也看成一个值塞回去
+        hasPermission("pd", function (result) {
+            console.log(result)
+            if (result === 0) {
+                console.log("服务器连接失败")
+            } else if (result === 2) {
+                console.log("没有权限")
+            } else if (result === 1) {
+                console.log("访问成功")
+            } else {
+                console.log("出现错误1")
+            }
+        })
+    </script>
+
+</body>
+
+</html>
