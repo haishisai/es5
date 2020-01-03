@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=maige, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    *{
+        padding:0;
+        margin: 0;
+    }
+    #box ul{
+        background: #666;
+        /* height: 30px; */
+    }
+    </style>
+</head>
+
+<body>
+    <div>递归</div>
+    <div id="box"></div>
+    <script>
+        //模拟数据
+        var msg1 = {
+            data: [
+                {
+                    name: 'IT互联网',
+                    child: [
+                        { name: '编译语音', child: [{ name: 'java' }, { name: 'c#' }, { name: 'phthon' }] },
+                        { name: '前端开发', child: [{ name: 'a', child: [{ name: 'a-1' }, { name: 'a-2' }] }, { name: 'b' }, { name: 'c' }] },
+                        { name: '移动开发', child: [{ name: 'android' }, { name: 'ios' }] }
+                    ]
+                }, {
+                    name: '设计创作',
+                    child: [
+                        { name: '平面设计', child: [{ name: '电商美工' }, { name: '综合平面设计' }, { name: '后期' }] },
+                        { name: 'UI设计', child: [{ name: '交互设计' }, { name: 'UI设计' }] },
+                        { name: '软件设计' }]
+                }, {
+                    name: '升学考试',
+                    child: [{ name: '考验' }, { name: '大学' }, { name: '高中' }]
+                }]
+        }
+        var testmsg = "test1"
+        //递归
+        var forUl = {
+            //启动
+            init: function () {
+                // console.log('start');
+                this.whtml()
+            },
+            // 创建dom结构
+            createTree: function (e) {  
+                var str = "<ul>";
+                // 在递归中 for循环 i 一定要 var
+                for(var i=0;i<e.length;i++){
+                    str += "<li>"+e[i].name+"</li>";
+                    // console.log(e[i].name)
+                    if(e[i].child){
+                        str += this.createTree(e[i].child)
+                    } 
+                }
+                str += "</ul>";
+                return str;
+            },
+            // 把dom结构写入页面
+            whtml: function () {
+                var dom1 = document.getElementById('box')
+                var msg = this.createTree(msg1.data)
+                dom1.innerHTML = msg
+            },
+        }
+        forUl.init()
+    </script>
+</body>
+
+</html>
