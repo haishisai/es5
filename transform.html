@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>transform</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        body{
+            /* 景深 设置在需要提醒立体效果的父元素上 */
+            perspective: 1000px;  
+        }
+        .demo {
+            width: 100px;
+            height: 100px;
+            padding:50px;
+            margin: 50px;
+            border:50px solid rebeccapurple;
+            background-color: aquamarine;
+            transform: translateX(100%);
+            /*水平方向评议 px % em rem  100%=平移自身宽度的100%包含padding+border 不包含margin */
+            transform: translateY(200%);  /*translateXYZ 属性只能使用一个*/
+            transform: translateZ(100px);
+
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="demo"></div>
+</body>
+
+</html>

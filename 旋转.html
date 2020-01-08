@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 100px;
+            height: 100px;
+            background-color: aquamarine;
+            transform: rotate3d(1, 0, 0, 30deg);  /*前面是 旋转的 轴 用1表示*/
+        }
+        .demo{
+            width:300px;
+            height: 300px;
+            border-radius: 50%;
+            border:20px solid;
+            border-left-color: aquamarine;
+            border-right-color:transparent;
+            border-top-color:brown;
+            border-bottom-color:transparent;
+            border-right-width: 10px;
+            border-left-width: 0px;
+            border-top-width: 10px;
+            border-bottom-width: 10px;
+            transform: rotate(30deg); /*rotate  默认z*/
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box"></div>
+    <div class="demo"></div>
+</body>
+
+</html>
