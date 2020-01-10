@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>tab</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        ul {
+            list-style: none;
+        }
+        .clear {
+            clear: both;
+        }
+        .container {
+            border: 1px solid black;
+            height: 532px;
+        }
+        .tab_box {
+            display: flex;
+            position: relative;
+        }
+        .tab_box li {
+            flex: auto;
+            border: 1px solid black;
+            height: 30px;
+        }
+        .showarea {
+            position: absolute;
+            left: 0;
+            top:32px;
+            z-index: 1;
+            /* display: block; */
+            width: 100%;
+            background-color: #eee;
+            height: 500px;
+        }
+        .tab_box li:hover .showarea{
+            z-index: 10;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <ul class="tab_box">
+            <li>
+                tab1
+                <div class="showarea">box-1</div>
+            </li>
+            <li>
+                tab2
+                <div class="showarea">box-2</div>
+            </li>
+            <li>
+                tab3
+                <div class="showarea">box-3</div>
+            </li>
+        </ul>
+    </div>
+    <!-- 老师辛苦啦！ -->
+</body>
+</html>

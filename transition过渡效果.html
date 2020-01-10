@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    *{
+        padding: 0;
+        margin: 0;
+    }
+    .demo {
+        width: 100px;
+        height: 100px;
+        background-color:pink;
+        position: absolute;
+        left: 0;
+        transition:left 1s 1s ease; 
+        /* 监听属性 动画时间  延迟时间 动画速率 */
+    }
+    /* .demo:hover {
+        left:300px;
+    } */
+    </style>
+</head>
+<body>
+    <div class="demo"></div>
+    <script>
+    var demo = document.getElementsByClassName('demo');
+    demo[0].onclick = function(){
+        console.log(1)
+        this.style.left = 300+"px";
+    }
+    </script>
+</body>
+</html>

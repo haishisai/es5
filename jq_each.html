@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./public/jquery.js" ></script>
+    <style>
+        .d1{
+            background: brown;
+            height: 100px;
+            width: 100px;
+            float: left;
+            margin: 20px;
+        }
+        .d2{
+            background:burlywood;
+            height: 100px;
+            width: 100px;
+            float: left;
+            margin: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="d1">001</div>
+    <div class="d1">002</div>
+    <div class="d1">003</div>
+    <div class="d1">004</div>
+    <div class="d1">005</div>
+    <div style="clear: both;" ></div>
+    <div class="d2">01</div>
+    <div class="d2">02</div>
+    <div class="d2">03</div>
+    <div class="d2">04</div>
+    <div class="d2">05</div>
+
+    <script>
+    $(function(){
+        $(".d1").each(function(index){
+            $(this).click(function(){
+                console.log(index)
+                $(".d2").eq(index).css({'background-color':'red'})
+            })
+        })
+    })
+    
+    </script>
+</body>
+</html>

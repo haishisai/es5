@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>tab</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .clear {
+            clear: both;
+        }
+
+        .container {
+            border: 1px solid black;
+        }
+
+        .tab_box {
+            display: flex;
+        }
+
+        .tab_box li {
+            flex: auto;
+            border: 1px solid black;
+        }
+
+        .show_box {
+            position: relative;
+            height: 500px;
+            width: 100%;
+            background-color: #EEEEEE;
+        }
+
+        .show_box li {
+            position: absolute;
+            z-index: 1;
+            background-color: #EEEEEE;
+        }
+
+        .show_box li:nth-child(1) {
+            z-index: 10;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <ul class="tab_box">
+            <li>tab1</li>
+            <li>tab2</li>
+            <li>tab3</li>
+        </ul>
+        <ul class="show_box">
+            <li>box-1</li>
+            <li>box-2</li>
+            <li>box-3</li>
+        </ul>
+    </div>
+    <script>
+
+        var tabController = {
+            dom_tabs: document.querySelectorAll(".tab_box li"),
+            dom_sbox: document.querySelectorAll(".show_box li"),
+            init: function () {
+                this.clickevent();
+            },
+            clickevent: function () {
+                var l = this.dom_tabs.length
+                for (var i = 0; i < l; i++) {
+                    that = this
+                    this.dom_tabs[i].index = i
+                    //绑定click事件 →
+                    this.dom_tabs[i].onclick = function () {
+                        console.log(this) // 这里的this 指向 this.dom_tab[i]
+                        that.zindexclear();
+                        that.dom_sbox[this.index].style.zIndex = 100;
+                    }
+                }
+            },
+            zindexclear: function(){
+                var l = this.dom_tabs.length;
+                for (var i = 0; i < l; i++){
+                    this.dom_sbox[i].style.zIndex = 1;
+                }
+            }
+        }
+        tabController.init()
+    </script>
+</body>
+
+</html>
