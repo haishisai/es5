@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    // 2的n次幂
+    var res1 = 2;
+    function f1(e){
+        for(var i=1;i<e;i++){
+            res1 *= 2; 
+        }
+        console.log(res1)
+    }
+    // f1(4)
+
+    // n的阶乘
+    var res2 = 1
+    function f2(e){
+        for(var i=1;i<=e;i++){
+            res2 *= i
+        }
+        console.log(res2);
+    }
+    // f2(4)
+
+    // 2项累加 一直下去 查询第n项的数值
+    var res3 = [1,1]
+    function f3(e){
+        if(e==1||e==2){
+            console.log(1);
+        }else if(e>2){
+            for(i=0;i<e-2;i++){
+                msg = res3[0+i]+res3[1+i];
+                res3.push(msg)
+            }
+            console.log(res3[e-1])
+        }else{
+            console.log("err")
+        }
+    }
+    // f3(6)
+    </script>
+</body>
+</html>
