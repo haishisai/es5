@@ -49,7 +49,7 @@
     // split() 用特定字符吧 字符串切割成数组
     // splice() 数组专用 截取数组 改变原数组
 
-    // slice()  
+    // slice(strat,end) 开始位-1是倒数第一位   结束位不填 直接是最后一位   
 
     function f4(e){
         var l = e.length
@@ -60,7 +60,30 @@
         }
         console.log(res)
     }
-    f4("1221234")
+    // f4("1221234")
+    // 找质数
+    var count = 0;
+    var count2 = 0
+    function f5(){
+        for(var i=2;i<100;i++){
+            // console.log("第"+i+"圈")
+            for(var m=2;m<=i;m++){
+               sss = i % m
+            // console.log(sss)
+               if(sss == 0 ){
+                   count++
+               }
+            }
+            //  被自己整除是记一次数
+            if(count==1){
+                   console.log(i)
+                   count2++
+            }
+            count = 0;
+        }
+        console.log(`一共有${count2}个`)
+    }
+    f5()
     </script>
 </body>
 </html>
