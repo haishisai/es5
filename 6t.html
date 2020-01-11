@@ -44,11 +44,23 @@
         }
     }
     // f3(6)
-    test  
 
+    // 倒序字符串
+    // split() 用特定字符吧 字符串切割成数组
+    // splice() 数组专用 截取数组 改变原数组
 
-    test222
-    333
+    // slice()  
+
+    function f4(e){
+        var l = e.length
+        var res = "";
+        for(var i=1;i<=l;i++){
+            var msg1 = e.slice(l-i,l-i+1); // -1 从最后一位开始   不填 表示截取到结束    
+            res += msg1;
+        }
+        console.log(res)
+    }
+    f4("1221234")
     </script>
 </body>
 </html>
