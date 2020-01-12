@@ -26,6 +26,15 @@
         }
         console.log(res2);
     }
+
+    // 方法2 递归
+    function jc(n){
+        if(n==1){
+            return 1
+        }
+        return n * jc(n-1)
+    }
+    // console.log(jc(5))
     // f2(4)
 
     // 2项累加 一直下去 查询第n项的数值
