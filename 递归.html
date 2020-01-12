@@ -69,6 +69,7 @@
                 // 在递归中 for循环 i 一定要 var
                 for(var i=0;i<e.length;i++){
                     str += "<li>"+e[i].name;
+                    // 递归出口
                     if(e[i].child){
                         str += '<span class="openicon" >+</span>'
                         str += this.createTree(e[i].child)
