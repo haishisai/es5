@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        .demo {
+            /* 把border和padding算进 定义的宽高里面 widht height */
+            box-sizing: border-box;
+            width: 200px;
+            height: 200px;
+            border: 50px solid sandybrown;
+        }
+
+        .demo2 {
+            /* 在height=0的情况下 就失去了神奇的效果了 */
+            box-sizing: border-box;
+            border: 50px solid royalblue;
+            width: 25%;
+            padding-bottom:25%;
+            height: 0;
+        }
+
+        .demo3 {
+            border:1px solid red;
+            width: 200px;
+            height: 0;
+            line-height: 100px;
+            padding-bottom:100px;
+            /* 在height=0的情况下 padding-bottom可以当做 height用 */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="demo"></div>
+
+    <div class="demo2">1</div>
+    
+    <div class="demo3">111</div>
+</body>
+
+</html>

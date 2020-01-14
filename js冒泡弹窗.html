@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        html,
+        body {
+            height: 100%;
+        }
+
+        .shade-box {
+            height: 100%;
+            width: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+
+        .contant {
+            height: 200px;
+            width: 300px;
+            position: fixed;
+            left: 50%;
+            top: 50%;
+            margin-left: -150px;
+            margin-top: -150px;
+            background: #fff;
+        }
+    </style>
+</head>
+
+<body>
+    test
+    <div class="btn" >遮罩</div>
+    <div class="shade-box">
+        <div class="contant"></div>
+    </div>
+    <script>
+        var domShadeBox = document.getElementsByClassName("shade-box")[0];
+        var domContant = document.getElementsByClassName("contant")[0];
+        var btn = document.getElementsByClassName("btn")[0];
+
+        domShadeBox.onclick = function () {
+            this.style.display = "none";
+        }
+        domContant.onclick = function (e) {
+            e.stopPropagation();
+        }
+        btn.onclick = function () {
+            domShadeBox.style.display = "block"
+        }
+
+    </script>
+</body>
+
+</html>

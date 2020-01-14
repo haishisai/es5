@@ -1,108 +1,111 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
 </head>
+
 <body>
     <script>
-    // 2的n次幂
-    var res1 = 2;
-    function f1(e){
-        for(var i=1;i<e;i++){
-            res1 *= 2; 
-        }
-        console.log(res1)
-    }
-    // f1(4)
-
-    // n的阶乘
-    var res2 = 1
-    function f2(e){
-        for(var i=1;i<=e;i++){
-            res2 *= i
-        }
-        console.log(res2);
-    }
-
-    // 方法2 递归
-    function jc(n){
-        if(n==1){
-            return 1
-        }
-        return n * jc(n-1)
-    }
-    // console.log(jc(5))
-    // f2(4)
-
-    // 2项累加 一直下去 查询第n项的数值
-    var res3 = [1,1]
-    function f3(e){
-        if(e==1||e==2){
-            console.log(1);
-        }else if(e>2){
-            for(i=0;i<e-2;i++){
-                msg = res3[0+i]+res3[1+i];
-                res3.push(msg)
+        // 2的n次幂
+        var res1 = 2;
+        function f1(e) {
+            for (var i = 1; i < e; i++) {
+                res1 *= 2;
             }
-            console.log(res3[e-1])
-        }else{
-            console.log("err")
+            console.log(res1)
         }
-    }
-    // f3(6)
-    //方法2 
-    function fb(n){
-        if(n==1||n==2){
-            return 1
-        }
-        return res = fb(n-1)+fb(n-2)
-    }
-    
+        // f1(4)
 
-
-
-    // 倒序字符串
-    // split() 用特定字符吧 字符串切割成数组
-    // splice() 数组专用 截取数组 改变原数组
-
-    // slice(strat,end) 开始位-1是倒数第一位   结束位不填 直接是最后一位   
-
-    function f4(e){
-        var l = e.length
-        var res = "";
-        for(var i=1;i<=l;i++){
-            var msg1 = e.slice(l-i,l-i+1); // -1 从最后一位开始   不填 表示截取到结束    
-            res += msg1;
-        }
-        console.log(res)
-    }
-    // f4("1221234")
-    // 找质数
-    var count = 0;
-    var count2 = 0
-    function f5(){
-        for(var i=2;i<100;i++){
-            // console.log("第"+i+"圈")
-            for(var m=2;m<=i;m++){
-               sss = i % m
-            // console.log(sss)
-               if(sss == 0 ){
-                   count++
-               }
+        // n的阶乘
+        var res2 = 1
+        function f2(e) {
+            for (var i = 1; i <= e; i++) {
+                res2 *= i
             }
-            //  被自己整除是记一次数
-            if(count==1){
-                   console.log(i)
-                   count2++
-            }
-            count = 0;
+            console.log(res2);
         }
-        console.log(`一共有${count2}个`)
-    }
-    f5()
+
+        // 方法2 递归
+        function jc(n) {
+            if (n == 1) {
+                return 1
+            }
+            return n * jc(n - 1)
+        }
+        // console.log(jc(5))
+        // f2(4)
+
+        // 2项累加 一直下去 查询第n项的数值
+        var res3 = [1, 1]
+        function f3(e) {
+            if (e == 1 || e == 2) {
+                console.log(1);
+            } else if (e > 2) {
+                for (i = 0; i < e - 2; i++) {
+                    msg = res3[0 + i] + res3[1 + i];
+                    res3.push(msg)
+                }
+                console.log(res3[e - 1])
+            } else {
+                console.log("err")
+            }
+        }
+        // f3(6)
+        //方法2 
+        function fb(n) {
+            if (n == 1 || n == 2) {
+                return 1
+            }
+            return res = fb(n - 1) + fb(n - 2)
+        }
+
+
+
+
+        // 倒序字符串
+        // split() 用特定字符吧 字符串切割成数组
+        // splice() 数组专用 截取数组 改变原数组
+
+        // slice(strat,end) 开始位-1是倒数第一位   结束位不填 直接是最后一位   
+
+        function f4(e) {
+            var l = e.length
+            var res = "";
+            for (var i = 1; i <= l; i++) {
+                var msg1 = e.slice(l - i, l - i + 1); // -1 从最后一位开始   不填 表示截取到结束    
+                res += msg1;
+            }
+            console.log(res)
+        }
+        // f4("1221234")
+        // 找质数
+        var count = 0;
+        var count2 = 0
+        function f5() {
+            for (var i = 2; i < 100; i++) {
+                // console.log("第"+i+"圈")
+                for (var m = 2; m <= i; m++) {
+                    sss = i % m
+                    // console.log(sss)
+                    if (sss == 0) {
+                        count++
+                    }
+                }
+                //  被自己整除是记一次数
+                if (count == 1) {
+                    console.log(i)
+                    count2++
+                }
+                count = 0;
+            }
+            console.log(`一共有${count2}个`)
+        }
+        f5()
     </script>
 </body>
+
 </html>

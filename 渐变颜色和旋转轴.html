@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    body{
+        perspective: 1000px;
+    }
+    .demo{
+        margin:300px auto;
+        background: linear-gradient(#000,rgb(165, 22, 22));  /*上到下的颜色渐变*/
+        height: 300px;
+        width: 500px;
+        /* transform: rotateX(30deg); 沿着x轴旋转 施力方向  x轴 滚动  */
+        transform: rotateY(30deg); 
+        /* 沿着y轴旋转 施力方向  y轴 旋转 */
+         transform-origin: 50% 50%; /* 这是一个点 围绕这个点转 钉子 原点是当前元素左上角 */
+    }
+    </style>
+</head>
+<body>
+    <div class="demo"></div>
+</body>
+</html>
