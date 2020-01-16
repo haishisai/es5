@@ -1,0 +1,26 @@
+*{
+    padding:0;
+    margin:0;
+    list-style: none;
+}
+.float-left{
+    float: left;
+    
+}
+.clearfix:after{
+    clear: both;
+    content: "";
+    display:block;
+}
+.time-lie-left{
+    vertical-align: middle;
+}
+.time-lie-middle{
+    margin-left: 20px;
+}
+.time-lie-middle li{
+    float: left;
+}
+.time-lie-right{
+    float: right
+}

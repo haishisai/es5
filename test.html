@@ -14,15 +14,20 @@
 
 <body>
     <div>
-       
+       <div class="btn">1</div>
+       <div class="btn">2</div>
+       <div class="btn">3</div>
+       <div class="btn">4</div>
+       <div class="btn">5</div>
     </div>
    
     <script>
-        var str1 = new String("duyi");
-        var str2 = "duyi";
-        console.log(typeof str1);
-        console.log(typeof str2);
-        console.log(str2 == str1);
+     btns = document.getElementsByClassName("btn")
+     for(let i=0;i<10;i++){
+       btns[i].onclick = function(){
+         console.log(i)
+       }
+     }
     </script>
 </body>
 
