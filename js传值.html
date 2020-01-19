@@ -1,31 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
 </head>
+
 <body>
     <div id="app">
-        <div class="aaa">hello daidai</div>
-        <div id="child2">hello 123</div>
-        <div>hello 345</div>
-        <div>hello abc</div>
-        <span>111</span>
         <ul>
             <li>one</li>
             <li>two</li>
             <li>three</li>
         </ul>
+        <div class="demo">dmeo msg</div>
     </div>
-    <script src="./cz.js" ></script>
     <script>
-    // 对象 调用对象的方法 传值
-    video.init({
-        el1: "msg11212",
-        el : document.getElementById('app')
-    })
+        var video = {
+            init: function (msg) {
+                this.initData(msg);
+                this.initclick();
+            },
+            initData: function (msg) {
+                //把啊appdom挂到this上去
+                this.el = msg.el;
+                console.log(msg.el1);
+                // 直接也能获取dom节点
+                dom1 = document.getElementsByClassName("demo")[0]
+                console.log(dom1)
+            },
+            //事件委托
+            initclick: function () {
+                this.el.onclick = function (e) {
+                    console.log(e.target.innerHTML)
+                }
+            }
+        }
+    </script>
+    <script>
+        // 对象 调用对象的方法 传值
+        video.init({  
+            el : document.getElementById('app'),//暴露接口
+            el1 : "字符串信息"
+        })
     </script>
 </body>
+
 </html>

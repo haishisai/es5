@@ -77,7 +77,7 @@
                 var l = this.dom_tabs.length
                 for (var i = 0; i < l; i++) {
                     that = this
-                    // 给对象添加属性方便调用
+                    // 给对象添加属性方便调用  在click函数外部 所以能记录下i
                     this.dom_tabs[i].index = i
                     //绑定click事件 →
                     this.dom_tabs[i].onclick = function () {
