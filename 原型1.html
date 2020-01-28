@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    var str1 = 123;
+    console.log(typeof str1,str1) // number
+    var demo = str1.toString()
+    console.log(typeof str1) // number
+    console.log(typeof demo,demo) // string
+    Object.prototype.toString = function(){
+       return "被修改了"
+    }
+    Aaa.prototype = {
+        // toString: function() {
+        //     return "hehe"
+        // }
+        say: function() {
+            console.log("lala")
+            return "返回值"
+        }
+    }
+    // Aaa 是一个函数 名字叫做Aaa   加了括号 就是 执行了 执行了 没有 return 这个函数就没有了
+    function Aaa () {   
+
+    }
+    var d1 = new Aaa(); // new 了之后 才能有 原型链 
+    var d2 = Aaa()  // d2 => undefined  函数声明 相当于烟花 执行了就没了 
+    </script>
+</body>
+</html>

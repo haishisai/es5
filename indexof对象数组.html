@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // var arr = []
+        // var a = { name: "Alex",id:0 };
+        // var b = { name: "Tom",id:1 };
+        // var c = { name: "Tom3",id:2 };
+        // var d = { name: "Tom4",id:3 };
+        // var e = { name: "Tom5",id:4 };
+        // var f = { name: "Tom6",id:5 };
+        // arr.push(a, b,c,d,e,f)
+        // console.log(typeof arr)
+        // JSON.stringify(arr)  // 怎么没用 再研究
+        // console.log(typeof arr)
+        // var aa = { name: "Alex",id:0 };
+        // console.log(arr.indexOf(aa))
+        // console.log(arr.indexOf(a))
+
+
+        let data = [
+            { id: 0, name: 'aaa'},
+            { id: 1, nmae: 'dfdfe' },
+            { id: 3, value: 'find111' }
+        ];
+        var matchValue = data.find(item => {
+            return item.name == 'aaa';
+        });
+        console.log(matchValue , matchValue.id); // find
+
+
+
+
+    </script>
+</body>
+
+</html>

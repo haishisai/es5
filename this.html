@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <div class="d1" >22</div>
+</head>
+<body>
+    <script>
+    function Demo () {
+        this.say = function () {
+            console.log(this) //指向 function前面的那个元素 这里是 this 所以变成了 Demo
+        }
+    }
+    var test = new Demo();
+    test.say()
+
+    function demo2 () {
+        var d1 = document.querySelectorAll(".d1")[0];
+        d1.onclick = function(){
+            console.log(this)   // 这个this 指向 d1
+        }
+    }
+    demo2()
+    </script>
+</body>
+</html>

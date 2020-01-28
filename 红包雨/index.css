@@ -1,0 +1,32 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+#app{
+    top:0;
+    left:0;
+    bottom: 0;
+    right: 0;
+    position: fixed;
+}
+.hb{
+    position: absolute;
+    width: 140px;
+    top:-200px;
+}
+.hb-animation{
+    animation: hb 3s forwards;
+}
+@keyframes hb{
+    0%{
+        top:-200px
+    }
+    100%{
+        top:120%;
+        transform: rotateZ(360deg);
+    }
+}
+.hb-btn{
+    text-align: center;
+    
+}

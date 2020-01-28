@@ -10,17 +10,24 @@
 
 <body>
     <ul class="ul1">
-        <li>1</li>
-        <li>2</li>
-        <li>3</li>
-        <li>4</li>
-        <li>5</li>
+        <li>a</li>
+        <li>b</li>
+        <li>fdf</li>
+        <li>c</li>
+        <li>d</li>
     </ul>
     <script>
         var ul1 = document.getElementsByClassName("ul1")[0];
-        ul1.addEventListener("click", function (e) {
-            console.log(e.target.innerHTML)
+        var lis = document.querySelectorAll(".ul1 li")
+        for(var i=0;i<lis.length;i++){
+            lis[i].index = i;        
+        }
+        ul1.addEventListener("click", function (e) {         
+            console.log(e.target.index,e.target.innerHTML)       
         })
+
+        // $(this).click  li[i].onclick  目标对象 点击
+        // e.target 点击事件 获取元素信息
     </script>
 </body>
 

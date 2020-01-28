@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const arr = [
+            'Hydrogen',
+            'Helium',
+            'Lithium',
+            'Beryllium'
+        ];
+
+        console.log(arr.map(v => v.length));
+        // 当箭头函数的函数体只有一个 `return` 语句时，可以省略 `return` 关键字和方法体的花括号
+        console.log(arr.map(function(v){
+           return v.length
+        }));
+    </script>
+</body>
+
+</html>
