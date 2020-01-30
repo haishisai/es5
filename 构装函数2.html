@@ -16,8 +16,11 @@
         }
         return sayA  //本质返回的还是一个函数
     }
-    console.log(demo1.bbb)
+    console.log(demo1.bbb)  // 函数启动后 就只剩下 retrun后面的东西了 
     demo1()
+
+    //  this用在构造函数里面的,   搭配 new 使用   构造函数不需要return 自带retrun this
+    //  函数是自己干活    构造函数是自己已经不工作了，是车间工厂 
     </script>
 </body>
 </html>
