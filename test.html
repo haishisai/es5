@@ -8,10 +8,16 @@
 </head>
 <body>
     <script>
-    var aaa = "abcd";
-    aaa.aaa3 = "abcd1";
-    console.log(aaa.aaa3)
-    
+    var demo1 = function () {
+        var aaa = '111';
+        this.bbb = 'b';
+        function sayA () {
+            console.log(aaa)
+        }
+        return sayA  //本质返回的还是一个函数
+    }
+    console.log(demo1.bbb)
+    demo1()
     </script>
 </body>
 </html>
