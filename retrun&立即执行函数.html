@@ -1,0 +1,66 @@
+<!-- Vue-键盘事件及键值修饰符 -->
+
+<DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Vue.js</title>
+    
+
+</head>
+
+<body>
+    <script>
+
+        var demo = (function () {
+            var  msg = "test1";
+            function call() {
+                console.log(msg)
+            }
+            return function () {
+                call();
+                // n个函数执行了
+            }
+        }());
+        console.log(demo)     //  返回的是return后面的本体  function () {call();}
+        console.log(demo())   //  test1
+        // 这个是标准写法 demo()  内部多个函数就启动了
+
+
+        console.log("--------------------------")
+        var demo2 = function(){
+            var  msg = "test2";
+            var  msg2 = "test22222";
+            function call() {
+                console.log(msg)
+            }
+            function call2() {
+                console.log(msg2)
+            }
+            return function () {
+                call();
+                call2();
+            }
+        }
+        console.log(demo2)   //  返回 整个函数 赋值
+        console.log(demo2()) //  返回的是return后面的本体  function () {call();call2();}
+        console.log(demo2()())  // test2 test22222  居然可以这样写
+
+        console.log("--------------------------")
+
+        var demo3 = function(){
+            var msg = "test3";
+            return msg
+        }
+        console.log(demo3())   //test3
+
+        var demo4 = (function(){
+            var msg = "test4";
+            return msg
+        })();
+        console.log(demo4) //test4
+    </script>
+</body>
+
+</html>

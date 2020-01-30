@@ -11,17 +11,19 @@
 <body>
     <script>
         function test(name, age, msg) {
+            // var this = {}
             this.name = name,
-                this.age = age
+            this.age = age
             console.log(name)
             return msg
+            // return this
         }
         var a = new test("pd", 12, "pdmsg");
         var b = test("老王", 13, "在隔壁");
         console.log(a) //返回 test对象 name：pd age：12
         console.log(b) //返回 return 的内容
 
-
+        
         function getee(a, b) {
 
         }
