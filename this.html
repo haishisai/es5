@@ -23,7 +23,32 @@
             console.log(this)   // 这个this 指向 d1
         }
     }
-    demo2()
+    demo2()   // dom d1
+    var name = "quanju"
+    var a = {
+        name : "aaa",
+        say : function () {
+
+            console.log(this.name);
+            console.log(this);
+        }
+    }
+    var b = {
+        name : "bbb",
+        say : function (fun) {
+            console.log(this)   //this b 这个对象   function() 前面的say是b属性 即对应b
+            fun()  // quanju  等于 放入了 一个function  前面没有调用 所以this 对象是window
+            
+        }
+    }
+    b.say(a.say)
+    var e = (function(){
+        console.log(1)
+    })()      //  立即执行函数 不能直接写
+
+
+    // 个人总结  function  this 指向function 前面的对象    如果function前面没有东西那么 指向window  全局就是
+
     </script>
 </body>
 </html>
