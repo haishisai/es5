@@ -47,7 +47,7 @@
         console.log(demo2()) //  返回的是return后面的本体  function () {call();call2();}
         console.log(demo2()())  // test2 test22222  居然可以这样写
 
-        console.log("--------------------------")
+        console.log("2--------------------------")
 
         var demo3 = function(){
             var msg = "test3";
@@ -60,6 +60,34 @@
             return msg
         })();
         console.log(demo4) //test4
+        
+        console.log("3-----------------")
+        var  c1 = (function(){
+            var name = "ccc1";
+            function c1Say (){
+                console.log(name);
+            }
+            function c1Say2 (){
+                console.log('lalala');
+            }
+            return function(){
+                c1Say()
+                c1Say2()
+            }
+        }())
+        console.log(c1())    //ccc1
+
+        var  c2 = (function(){
+            var name = "c222";
+            function c2Say (){
+                console.log(name)
+            }
+            return c2Say
+        }())
+        console.log(c2()) //c222  单个函数效果一样
+
+        // 自我总结  return function 的形式 可以启动多个函数  
+
     </script>
 </body>
 

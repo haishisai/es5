@@ -16,12 +16,14 @@
             <li>three</li>
         </ul>
         <div class="demo">dmeo msg</div>
+        <div id="d1" >111</div>
     </div>
     <script>
         var video = {
             init: function (msg) {
                 this.initData(msg);
                 this.initclick();
+                this.colorChange()
             },
             initData: function (msg) {
                 //把啊appdom挂到this上去
@@ -36,6 +38,11 @@
                 this.el.onclick = function (e) {
                     console.log(e.target.innerHTML)
                 }
+            },
+            colorChange: function () {
+                demo = this.el.getElementsByClassName('demo')[0]
+                // d1 = this.el.getElementById('d1')   id值在整个文档里是唯一的，只能使用document.getElementById
+                demo.style.color = 'red';
             }
         }
     </script>

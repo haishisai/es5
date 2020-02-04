@@ -1,54 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-    <div class="d1" >22</div>
+    <div class="d1">22</div>
 </head>
+
 <body>
     <script>
-    function Demo () {
-        this.say = function () {
-            console.log(this) //指向 function前面的那个元素 这里是 this 所以变成了 Demo
+        function Demo() {
+            this.say = function () {
+                console.log(this) //指向 function前面的那个元素 这里是 this 所以变成了 Demo
+            }
         }
-    }
-    var test = new Demo();
-    test.say()
+        var test = new Demo();
+        test.say()
 
-    function demo2 () {
-        var d1 = document.querySelectorAll(".d1")[0];
-        d1.onclick = function(){
-            console.log(this)   // 这个this 指向 d1
+        function demo2() {
+            var d1 = document.querySelectorAll(".d1")[0];
+            d1.onclick = function () {
+                console.log(this)   // 这个this 指向 d1
+            }
         }
-    }
-    demo2()   // dom d1
-    var name = "quanju"
-    var a = {
-        name : "aaa",
-        say : function () {
+        demo2()   // dom d1
+        var name = "quanju"
+        var a = {
+            name: "aaa",
+            say: function () {
 
-            console.log(this.name);
-            console.log(this);
+                console.log(this.name);
+                console.log(this);
+            }
         }
-    }
-    var b = {
-        name : "bbb",
-        say : function (fun) {
-            console.log(this)   //this b 这个对象   function() 前面的say是b属性 即对应b
-            fun()  // quanju  等于 放入了 一个function  前面没有调用 所以this 对象是window
-            
+        var b = {
+            name: "bbb",
+            say: function (fun) {
+                console.log(this)   //this b 这个对象   function() 前面的say是b属性 即对应b
+                fun()  // quanju  等于 放入了 一个function  前面没有调用 所以this 对象是window
+
+            }
         }
-    }
-    b.say(a.say)
-    var e = (function(){
-        console.log(1)
-    })()      //  立即执行函数 不能直接写
+        b.say(a.say)
+        var e = (function () {
+            console.log(1)
+        })()      
 
 
-    // 个人总结  function  this 指向function 前面的对象    如果function前面没有东西那么 指向window  全局就是
+        // 个人总结  function  this 指向function 前面的对象    如果function前面没有东西那么 指向window  全局就是
 
+        console.log('------------')
+
+        var demo3 = (function () {
+            var name = "demo333";
+            function say() {
+                console.log(this);
+            }
+            say()  //window
+            return say
+        }())
+        demo3() //window
+        
     </script>
 </body>
+
 </html>
