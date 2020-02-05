@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 回溯法求解?
+        var objects = [
+            { value: 4, volume: 2 },
+            { value: 5, volume: 3 },
+            { value: 7, volume: 4 },
+            { value: 8, volume: 5 },
+            { value: 9, volume: 6 }
+        ]
+
+        function getMaxValue(capacity, objects) {
+            // 出口  1没有东西
+            if (objects.length === 0) {
+                return {
+                    objects: [],
+                    value: 0,
+                    volume: 0
+                }
+            }
+            // 2有东西  放不下
+            var obj = objects[0]  // 第一件物品
+            var left = objects.slice(1)
+            if (obj.volume > capacity) {
+                return getMaxValue(capacity, left) //空间不变，第一件物品
+            }
+            // 装
+            var result1 = getMaxValue(capacity - obj.volume, left);  // 关键在这里
+            
+            result1.objects.unshift(obj);
+            result1.value += obj.value;
+            result1.volume += obj.volume;
+            // 不装
+            var result2 = getMaxValue(capacity, left)
+            if (result1.value > result2.value) {
+                return result1
+            } else {
+                return result2
+            }
+        }
+        var result = getMaxValue(12, objects)
+        console.log(result)
+
+
+
+
+    </script>
+</body>
+
+</html>
