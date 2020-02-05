@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    Demo.prototype.lastName = 'pd'
+    function Demo () {
+
+    }
+    console.log(Demo.lastName) // undefined
+    var d = new Demo();
+    console.log(d,d.lastName) 
+    // 原型基与构造函数
+    // 任何函数有一个属性 prototype  这个prototype 是这个函数构造出对象的共有祖先
+    </script>
+</body>
+</html>

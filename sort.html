@@ -1,39 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
 </head>
+
 <body>
     <script>
-    var arr = [21,3,4,566,343,1,2,234,-45,1111,02,11,32,12]
-    var arr2 = [2111,3,4,51166,343,1,2,23402,11,32,12]  
-    arr.sort(function (a,b) {
-        // if (a<b) {
-        //     return -1    // 从小到大排列   a 小于 b  不换位置 给负数
-        // }else {
-        //     return 1
-        // }
+        var arr = [21, 3, 4, 566, 343, 1, 2, 234, -45, 1111, 02, 11, 32, 12]
+        var arr2 = [2111, 3, 4, 51166, 343, 1, 2, 23402, 11, 32, 12]
+        var arr3 = [2111, 3, 4, 51166, 343, 1, 2, 23402, 11, 32, 12]
+        var arr4 = [2111, 3, 4, 51166, 343, 1, 2, 23402, 11, 32, 12]
+        arr.sort(function (a, b) {
+            // if (a<b) {
+            //     return -1    // 从小到大排列   a 小于 b  不换位置 给负数
+            // }else {
+            //     return 1
+            // }
 
-        return a < b ? -1 : 1; 
+            return a < b ? -1 : 1;
 
-    })
-    console.log(arr)
+        })
+        console.log(arr)
 
-    //  总结  return 1  互换位置
+        //  总结  return 1  互换位置
 
-    //      返回值为负  前面的数在前（不动）
-    //      返回值为正  后面的数在前
-    //      0  不动
+        //      返回值为负  前面的数在前（不动）
+        //      返回值为正  后面的数在前
+        //      0  不动
 
-    arr2.sort(function (a,b) {
-        return a-b
-    })
-    // 这写法厉害
-    console.log(arr2)
+        arr2.sort(function (a, b) {
+            return a - b
+        })
+        // 这写法厉害
+        console.log(arr2)
 
+        arr3.sort((a, b) => a - b)
+        console.log(arr3)
+
+        arr4.sort(() => Math.random() - 0.5) //乱序
+        console.log(arr4)
     </script>
 </body>
+
 </html>

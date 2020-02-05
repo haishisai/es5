@@ -10,23 +10,21 @@
 
 <body>
     <script>
-        function test(name, age, msg) {
+        function Test(name, age, msg) {
             // var this = {}
             this.name = name,
             this.age = age
-            console.log(name)
+            // console.log(name)
             return msg
             // return this
         }
-        var a = new test("pd", 12, "pdmsg");
-        var b = test("老王", 13, "在隔壁");
-        console.log(a) //返回 test对象 name：pd age：12
+        var a = new Test("pd", 12, "pdmsg");
+        console.log(a) //返回 一个对象 name：pd age：12
+
+
+        var b = Test("老王", 13, "在隔壁");
         console.log(b) //返回 return 的内容
 
-        
-        function getee(a, b) {
-
-        }
 
     </script>
 </body>
