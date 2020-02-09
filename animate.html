@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    *{
+        padding: 0;
+        margin: 0;
+    }
+    .container{
+        position: absolute;
+        top:-200px;
+    }
+    .row{
+        height: 200px;
+        width: 200px;
+        border: 2px solid #000;
+        transform: translate3d();
+    }
+
+    </style>
+</head>
+<body>
+    <div>
+        <div class="container" >
+            <div class="row" ></div>
+        </div>
+    </div>
+
+    <script>
+    boxNode = document.getElementsByClassName('container')[0];
+    function createRow () {
+        boxNode.innerHTML += `<div class="row" ></div>`
+
+    }
+    function move () {
+        boxNode.style.top = boxNode.offsetTop + 5 + 'px';
+        if(boxNode.offsetTop >= 0){
+            
+            createRow()
+            boxNode.style.top = -200 + 'px'            
+        }
+    }
+    setInterval(() => {
+        // createRow()
+        move ()    // 一直在运行move  所以 相当于监听了 offsetTop
+    }, 20);
+    
+
+    //  基于 setInterval的动画    有点卡  换css3试
+    </script>
+</body>
+</html>
