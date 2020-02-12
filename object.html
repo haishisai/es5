@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var obj1 = {}
+        obj1.aaa = "aaa";
+        obj1['bbb'] = "bbb";
+        console.log(obj1)
+
+        var obj2 = {
+            color : 'red',
+            fontSize : '33px'
+        }
+        for(var prep in obj2){
+            console.log(prep+':'+obj2[prep])
+        }
+        
+        console.log(Object.keys(obj2)[0]) // Object.keys(obj2)  返回的是数组
+
+    </script>
+</body>
+</html>

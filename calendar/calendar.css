@@ -1,0 +1,52 @@
+*{
+    padding:0;
+    margin:0;
+}
+.calendar{
+    width: 350px;
+    /* border: 1px solid red; */
+    margin: 300px auto 0;
+}
+.calendar-header{
+    display: flex;
+    align-items: center;
+    height: 50px;
+}
+.calendar-header span{
+    vertical-align: middle;
+}
+.picker-btn{
+    width: 40px;
+    text-align: center;
+}
+.picker-date{
+    flex: 1;
+    text-align: center;
+}
+.picker-date{
+    font-size: 16px;
+}
+.calendar-content .picker-weeks , .calendar-content .picker-days{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+.calendar-content span{
+    width: 50px;
+    text-align: center;
+    font-size: 12px;
+    line-height: 25px;
+}
+.span-days{
+    color:#888;
+}
+.calendar-content .active-day{
+    color: red;
+}
+.calendar-content .active-month{
+    color: #000;
+}
+.calendar-content .active-select{
+    background-color: aqua;
+    color: azure;
+}

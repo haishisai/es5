@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        .container {
+            position: absolute;
+            top: -200px;
+        }
+
+        .row {
+            height: 200px;
+            width: 200px;
+            border: 2px solid #000;
+            transform: translate3d();
+        }
+
+        .move {
+            transition: top .5s linear;
+            top: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <div class="container ">
+            <div class="row"></div>
+        </div>
+    </div>
+    <div class="btn">start</div>
+    <script>
+        boxNode = document.getElementsByClassName('container')[0];
+        btnNode = document.getElementsByClassName('btn')[0];
+
+        var transitions = {
+            'transition': 'transitionend',
+            'OTransition': 'oTransitionEnd',
+            'MozTransition': 'transitionend',
+            'WebkitTransition': 'webkitTransitionEnd'
+        }
+        el = document.createElement('div');
+
+        function check1() {
+            for (var prep in transitions) {
+                // console.log(el.style[prep])
+                if (el.style[prep] !== undefined) {
+                    return transitions[prep]
+                }
+            }
+        }
+        var tt = check1()
+        console.log(tt)
+
+
+        function createRow() {
+            boxNode.innerHTML += `<div class="row" ></div>`
+
+        }
+        // btnNode.addEventListener('click', function () {
+        //     setInterval(() => {
+        //         boxNode.classList.add('move')
+        //         //动画结束后
+        //         setTimeout(function () {
+        //             boxNode.classList.remove('move');
+        //             createRow()
+        //         }, 520)
+        //     }, 540);
+        // })
+        btnNode.addEventListener('click', function () {
+
+            boxNode.classList.add('move')
+            //动画结束后
+            addEventListener('transitionend', function () {
+                boxNode.classList.remove('move');
+                createRow()
+                // boxNode.style.top = -200+'px'
+                setTimeout(() => {
+                    boxNode.classList.add('move')
+                }, 0);
+
+            })
+
+        })
+
+    </script>
+</body>
+
+</html>

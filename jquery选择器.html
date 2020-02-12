@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="d1">222</div>
+    <div class="d1">222</div>
+    <div class="d1">222</div>
+    <div class="d1">222</div>
+    <p>111</p>
+    <p>111</p>
+    <p>111</p>
+    <span id="only">333</span>
+
+    <div class="ccc">212</div>
+    <div class="ccc">212</div>
+    <div class="ccc">212</div>
+    <div class="ccc">212</div>
+
+    <script>
+        function $(selected) {
+            var firstChar = selected.substr(0, 1);
+            var sel = selected.substr(1)
+            var obj = [];
+            switch (firstChar) {
+                case '#':
+                    obj[0] = document.getElementById(sel);
+                    break;
+                case '.':
+                    obj = document.getElementsByClassName(sel);
+                    break;
+                default:
+                    obj = document.getElementsByTagName(selected);   // 又错了  没仔细
+            }
+            obj.css = function (key, value) {
+                if (typeof (key) === "object") {
+                    // 传入的是对象数据情况下
+                    var keys = Object.keys(key);  // 遍历数组的 key
+                    var values = Object.values(key);
+                    console.log(keys, values)
+                    //obj 是个类数组 需要循环
+                    for (var i = 0; i < obj.length; i++) {
+                        // keys　是数组 需要循环
+                        for (var j = 0; j < keys.length; j++) {
+                            obj[i].style[keys[j]] = values[j];
+                        }
+                    }
+                } else {
+                    if (value == undefined) {
+                        return obj[0].style[key];
+                    } else {
+                        for (var i = 0; i < obj.length; i++) {
+                            obj[i].style[key] = value;    // style.key  这样写变成 调用style的key方法了   变量要在[]里
+                        }
+                    }
+                }
+                
+            }
+            return obj;
+        }
+        $('.d1').css({ 'color': 'red', 'backgroundColor': '#333', 'textAlign': 'center' })
+        $('#only').css('backgroundColor', 'lightblue');
+        $('p').css('fontSize', '39px')
+        $('.ccc').css('color', 'green')
+    </script>
+</body>
+
+</html>

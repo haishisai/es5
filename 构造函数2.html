@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var demo1 = function () {
+            var aaa = '111';
+            this.bbb = 'b';
+            function sayA() {
+                console.log(aaa)
+            }
+            return sayA  //本质返回的还是一个函数
+        }
+<<<<<<< HEAD:test.html
+        console.log(demo1.bbb)
+        demo1()
+=======
+        return sayA  //本质返回的还是一个函数
+    }
+    console.log(demo1) //demo1函数  
+    demo1()
+    console.log(demo1) //demo1函数
+    demo1()() //111
+    // 函数启动后 就只剩下 retrun后面的东西了 
+    //  this用在构造函数里面的,   搭配 new 使用   构造函数不需要return 自带retrun this
+    //  函数是自己干活    构造函数是自己已经不工作了，是车间工厂 
+>>>>>>> 35dedc360b85a80f53e95eea453a9e52dbc6c453:构造函数2.html
+    </script>
+</body>
+
+</html>

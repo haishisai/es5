@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var arr = [1, 2, 3, 4, 1, 1, 2, 3, 24, 1, 2, 1, 2, 3, 1, 2, 3, 12, 3, 1]
+        Array.prototype.unique = function () {
+            var newArr = []
+            var obj = {};           
+            //this => arr   this[i]代表数组的每一项  
+            //把数组的数据 当做对象的名加进去 值随意
+            //最后  需要拿出的是的 对象的名字 this[i]    !!! 这里需要的是名 不是指  和往常相反
+            for (var i = 0; i < this.length; i++) {
+                if (obj[this[i]] === undefined) {
+                    obj[this[i]] = "abc";
+                    newArr.push(this[i])
+                }
+            }
+            return newArr
+        }
+        var res = arr.unique()
+        console.log(res)
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var aa = {name:1,};
+        var bb = [{1:2},3,4]
+
+        var str = String(aa)
+        var str2 = String(bb)
+        console.log(str) //[object Object]
+        console.log(str2) // [object Object],3,4
+
+        var st3 = Object.prototype.toString.call(aa)
+        var st4 = Object.prototype.toString.call(bb)
+        console.log(st3); //[object Object]  
+        console.log(st4); //[object Array]
+        
+        //
+        console.log(aa.length)
+        console.log(bb.length)
+    </script>
+</body>
+
+</html>

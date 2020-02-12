@@ -23,7 +23,10 @@
             lis[i].index = i;        
         }
         ul1.addEventListener("click", function (e) {         
-            console.log(e.target.index,e.target.innerHTML)       
+            console.log(e.target.index,e.target.innerHTML)
+            
+            e.target.setAttribute('name','222')
+            e.target.classList.add('bbb')
         })
 
         // $(this).click  li[i].onclick  目标对象 点击

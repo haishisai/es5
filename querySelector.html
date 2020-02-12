@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div, .d2{
+            height: 100px;
+            width: 100px;
+            background-color: cadetblue;
+        }
+    </style>
+</head>
+<body>
+    <div class="d1">1</div>
+    <div class="d1">2</div>
+    <div class="d1">3</div>
+
+
+  
+    <script>
+        var divs = document.querySelectorAll('.d1')
+        // var divs = document.getElementsByClassName('d1')    // 新加的 div 也能被改变 动态
+        console.log(divs)  // 3 个
+        var newDiv = document.createElement('div');
+        newDiv.className = 'd1'
+        document.body.appendChild(newDiv)
+        console.log(divs)  // 4 个
+        var str = `<div class="d1">5</div>`
+        // document.body.innerHTML += str;    // 加了这个 一个都改变不了   就等于是不认识d1了 没用了 
+        console.log(divs)  // 5 个
+        for(var i=0;i<divs.length;i++){
+                       
+            divs[i].style.backgroundColor = 'red'
+        }
+      
+
+        //   querySelector 只能找到当时的 node 节点      
+        //   innerHTML +=   querySelector认为是新的5个东西
+    </script>
+</body>
+</html>
