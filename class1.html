@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        class pointer {
+            constructor(x, y) {
+                this.x = x;
+                this.y = y;
+                this.aa = function (e) {
+                    console.log(e)
+                    return 'ret aa'
+                }
+            }           
+            abc(){
+                return this.x + this.y 
+            }           
+            abcd (msg) {
+                return this.aa(msg)
+            }
+        }
+
+        demo = new pointer(1,2)
+        console.log(typeof demo) // object
+        console.log(demo.aa) //  aa 函数
+        console.log(demo.abc()) //  3
+        console.log(demo.abcd('pd')) // pd    ret aa
+    </script>
+</body>
+
+</html>

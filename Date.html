@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var date = new Date();   // 记录时刻
+        console.log(date)
+        console.log(date.getDate())   // 日期
+        console.log(date.getDay())    // 星期几  0 1 2 3 4 5 6 
+        console.log(date.getMonth()+1)    // 0~11   需要+1
+        console.log(date.getFullYear())  // 
+        console.log(date.getHours(),date.getMinutes(),date.getSeconds()) // 获取的是静态的
+        console.log(date.getTime())
+
+
+        var firstTime = new Date().getTime();
+        var c = 0;
+        for(var i=0;i<10000;i++){
+        }
+        var lastTime = new Date().getTime();
+        console.log(lastTime - firstTime)    //  110毫秒左右 1千万的for循环   不做运算只要 28毫秒
+
+        var dete1 = new Date(2020,1,11);
+        console.log( dete1 )
+        var ddd = {
+            d1: new Date(),
+            // d2: this.d1.getDay()    不懂  这样写报错
+        }
+    </script>
+</body>
+</html>
