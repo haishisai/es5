@@ -12,7 +12,6 @@ var calender = {
         this.initData(callback)
         this.render() // 需要 starday 所以需要在 initDate后面执行       
         this.handle()
-
     },
     initData: function (callback) {
         this.getToday()
@@ -82,7 +81,7 @@ var calender = {
     renderDayData: function () {
         var arr = [];
         for (var j = 0; j < 42; j++) {
-            var nextDaySjc = this.startDaySjc + 1000 * 60 * 60 * 24 * j + 100
+            var nextDaySjc = this.startDaySjc + 1000 * 60 * 60 * 24 * j + 7200000 //现在是中国标准时间 1988-9-12  中国夏令时间 少了1个小时
             // 转换成日期
             var day = new Date(nextDaySjc);
             arr.push(day)
@@ -119,7 +118,7 @@ var calender = {
             e.target.classList.add('active-select')
             var selectMsg = `${self.today.year}-${self.today.month + 1}-${e.target.innerHTML}`
             // 接收到的外部函数 放在这里？？   function (e) {console.log(e)}
-            self.cb(selectMsg)  // 有种出口的感觉？   这里就是启用函数 传参在这里
+            self.cb(selectMsg)  // 有种出口的感觉？   就是启用函数 传参
             // 直白的意思就是  换了个位置写代码  
         })
     },
@@ -164,11 +163,12 @@ var calender = {
         var nodes = this.el.getElementsByClassName('span-days')
         for (var i = 0; i < nodes.length; i++) {
             var str = nodes[i].className    //classList 返回的是个类数组？？
-            var arrClassName = str.split(" ");  // arr → str
+            console.log(typeof str)
+            var arrClassName = str.split(" ");  // str → arr
             var index = arrClassName.indexOf('active-select')
             if (index >= 0) {
                 arrClassName.splice(index, 1)
-                var newName = arrClassName.join(' ')  // str → arr  
+                var newName = arrClassName.join(' ')  //   
                 nodes[i].className = newName;
             }
             
