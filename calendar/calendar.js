@@ -8,14 +8,16 @@ var calender = {
     monthFirstDay: {}, // 当月第一天
     startDay: {}, // 展示第一天
     ifToday: 0,
-    init: function () {
-        this.initData()
+    init: function (callback) {
+        this.initData(callback)
         this.render() // 需要 starday 所以需要在 initDate后面执行       
         this.handle()
+
     },
-    initData: function () {
+    initData: function (callback) {
         this.getToday()
         this.getStartDay(this.today.year, this.today.month)
+        this.cb = callback  // 接收外部的 函数
     },
     getToday: function () {
         this.today.date = this.date.getDate()
@@ -80,7 +82,7 @@ var calender = {
     renderDayData: function () {
         var arr = [];
         for (var j = 0; j < 42; j++) {
-            var nextDaySjc = this.startDaySjc + 1000 * 60 * 60 * 24 * j
+            var nextDaySjc = this.startDaySjc + 1000 * 60 * 60 * 24 * j + 100
             // 转换成日期
             var day = new Date(nextDaySjc);
             arr.push(day)
@@ -109,6 +111,17 @@ var calender = {
         nodePrevYear.addEventListener('click', function () {
             self.prevYear()
         })
+        // 获取点击的日期
+
+        var nodes = this.el.getElementsByClassName('picker-days')[0];
+        nodes.addEventListener('click', function (e) {
+            self.selectRemoveClass()
+            e.target.classList.add('active-select')
+            var selectMsg = `${self.today.year}-${self.today.month + 1}-${e.target.innerHTML}`
+            // 接收到的外部函数 放在这里？？   function (e) {console.log(e)}
+            self.cb(selectMsg)  // 有种出口的感觉？   这里就是启用函数 传参在这里
+            // 直白的意思就是  换了个位置写代码  
+        })
     },
     nextMonth: function () {
         this.today.month += 1
@@ -122,7 +135,6 @@ var calender = {
             this.getStartDay(this.today.year, this.today.month)
             this.render()
         }
-        console.log(this.ifToday)
     },
     prevMonth: function () {
         this.today.month -= 1
@@ -135,7 +147,6 @@ var calender = {
             this.getStartDay(this.today.year, this.today.month)
             this.render()
         }
-        console.log(this.ifToday)
     },
     nextYear: function () {
         this.today.year += 1
@@ -148,12 +159,28 @@ var calender = {
         this.ifToday -= 12
         this.getStartDay(this.today.year, this.today.month)
         this.render()
-    }
+    },
+    selectRemoveClass: function () {
+        var nodes = this.el.getElementsByClassName('span-days')
+        for (var i = 0; i < nodes.length; i++) {
+            var str = nodes[i].className    //classList 返回的是个类数组？？
+            var arrClassName = str.split(" ");  // arr → str
+            var index = arrClassName.indexOf('active-select')
+            if (index >= 0) {
+                arrClassName.splice(index, 1)
+                var newName = arrClassName.join(' ')  // str → arr  
+                nodes[i].className = newName;
+            }
+            
+        }
+    }//  jq 一行就能搞定......
 }
 
-calender.init()
+calender.init(function (msg) {
+    console.log(msg) // 可以在外部使用 选择日期
+})
 
 
 
-// 结论  时间不要写在 onclik这类事件上  而是该吧这类事件全部 放在 handle里
+// 结论  事件不要写在函数里    事件在外面 函数在里面  
 
