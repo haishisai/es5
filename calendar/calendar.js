@@ -75,7 +75,6 @@ var calender = {
     },
     renderHeader: function () {
         var dete = this.el.getElementsByClassName('picker-date')[0];
-
         dete.innerHTML = `${this.today.year}年${this.today.month + 1}月`
     },
     renderDayData: function () {
@@ -149,7 +148,6 @@ var calender = {
         this.ifToday -= 12
         this.getStartDay(this.today.year, this.today.month)
         this.render()
-
     }
 }
 
