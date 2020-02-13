@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            padding:0;
+            margin:0;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="d1" style="width: 100px;height:300px; " >1111
+            <div class="d2" style="width: 200px; height: 600px;" >222</div>
+    </div>
+    <div style="height: 5000px;" ></div>
+    <script>
+        var d1Node = document.getElementsByClassName('d1')[0]
+        var d2Node = document.getElementsByClassName('d2')[0]
+
+        console.log(d1Node.offsetHeight)  //300  设置的了高度的时候 是设置的高度 没有设置时 是撑开高度
+        console.log(d2Node.offsetHeight)
+
+        console.log(d1Node.scrollHeight)  // 626   自己的大小+被撑开的大小
+        console.log(d2Node.scrollHeight)  // 600
+
+        
+        console.log(window.pageYOffset)   //  浏览器向下滚动距离
+        console.log(document.documentElement.scrollTop) // 一样 推荐上面那个
+
+        
+        console.log(window.innerHeight)   // 浏览器视口高度 
+        console.log(document.documentElement.clientHeight) // 一样 推荐上面那个
+        
+    </script>
+</body>
+</html>
