@@ -54,7 +54,6 @@ var calender = {
         //         str2 += `<span>${strDay[j].getDate()}</span>`
         //     }
         // }
-
         // 方法2 
         for (var j = 0; j < 42; j++) {
             // 判断当前月份
@@ -111,11 +110,15 @@ var calender = {
             self.prevYear()
         })
         // 获取点击的日期
-
         var nodes = this.el.getElementsByClassName('picker-days')[0];
         nodes.addEventListener('click', function (e) {
+            // 事件委托 防止父级被选中
+            if(e.target.className == 'picker-days'||''){
+                return
+            }
             self.selectRemoveClass()
             e.target.classList.add('active-select')
+            
             var selectMsg = `${self.today.year}-${self.today.month + 1}-${e.target.innerHTML}`
             // 接收到的外部函数 放在这里？？   function (e) {console.log(e)}
             self.cb(selectMsg)  // 有种出口的感觉？   就是启用函数 传参
@@ -163,7 +166,6 @@ var calender = {
         var nodes = this.el.getElementsByClassName('span-days')
         for (var i = 0; i < nodes.length; i++) {
             var str = nodes[i].className    //classList 返回的是个类数组？？
-            console.log(typeof str)
             var arrClassName = str.split(" ");  // str → arr
             var index = arrClassName.indexOf('active-select')
             if (index >= 0) {
@@ -173,7 +175,7 @@ var calender = {
             }
             
         }
-    }//  jq 一行就能搞定......
+    }//  jq 一行就能搞定......  这段写的太垃圾了   classList.contains  
 }
 
 calender.init(function (msg) {
