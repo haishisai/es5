@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .div1 {
+            height: 300px;
+            width: 300px;
+            background-color: aqua;
+            position: absolute;
+        }
+
+        .div2 {
+            height: 150px;
+            width: 150px;
+            background-color: blueviolet;
+            position: absolute;
+            left: 500px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="div1">11111111 111111111 1111 111111 11111</div>
+    <div class="div2">22222222 222222222 22222 22222</div>
+    <script>
+        var div = document.getElementsByClassName('div1')[0];
+        var div2 = document.getElementsByClassName('div2')[0];
+
+        function drag(el) {
+            el.addEventListener('mousedown', function (e) {
+                // e.stopPropagation() 
+                console.log(1)
+                var disX = e.pageX - el.offsetLeft     //  offsetLeft 可以获取元素的位置信息 绝对位置 
+                var disY = e.pageY - el.offsetTop
+                document.addEventListener('mousemove', move)
+                function move(e) {
+                    // e.stopPropagation() 
+                    console.log(111)
+                    el.style.left = e.pageX - disX + 'px'
+                    el.style.top = e.pageY - disY + 'px'
+                }
+                document.addEventListener('mouseup', function () {
+                    document.removeEventListener('mousemove', move)
+                })
+            })
+        }
+        drag(div)
+
+        function drag2(el) {
+            el.onmousedown = function (e) {
+                // e.stopPropagation() 
+                console.log(2)
+                var x = e.pageX;
+                var y = e.pageY;
+                var l = el.offsetLeft
+                var t = el.offsetTop
+                document.onmousemove = function (e) {
+                    // 解决文字被选中时无法拖拽
+                    window.getSelection ? window.getSelection().removeAllRanges() : document.selection.empty();
+                    console.log(222)
+                    // e.stopPropagation() 
+                    el.style.left = l + e.pageX - x + 'px'
+                    el.style.top = t + e.pageY - y + 'px'
+                }
+                document.onmouseup = function () {
+                    document.onmousemove = null;
+                }
+            }
+        }
+        drag2(div2)
+
+
+
+
+
+        // pageX  pageY  offsetLeft 
+        //  内容被选中状态 无法拖拽   user-select: none;
+    </script>
+</body>
+
+</html>

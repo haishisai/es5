@@ -12,7 +12,6 @@
         }
         body{
             perspective: 500px;
-            k
         }
         .heightbox{
             height: 200px;
@@ -23,13 +22,39 @@
             position: relative;
             transform: rotateX(0deg) rotateY(0deg) ;
             transform-style: preserve-3d;
+            animation: a2 5s linear infinite;
+            /* position: absolute; */
+        }
+        @keyframes a2 {
+            100%{
+                transform:rotate3d(0,1,0,360deg); 
+                
+            }
+            
+        }
+        .test{
+            height: 100px;
+            width: 100px;
+            background-color:aqua;
+            animation: a1 2s linear infinite;
+            position: absolute;
+        }
+        @keyframes a1 {
+
+            100%{
+                transform: rotate3d(0,1,1,360deg);   /* 设置旋转轴 */
+               
+            }
         }
         .wrapper .box{
             width: 200px;
             height: 200px;
+            line-height: 200px;
+            font-size: 30px;
             position: absolute;
             top:0;
             left: 0;
+            text-align: center;
         }
         .wrapper .box:nth-child(1){
             background-color: rgba(1, 1, 1, 0.5);
@@ -58,6 +83,7 @@
     </style>
 </head>
 <body>
+    <div class="test" ></div>
     <div class="heightbox"></div>
     <div class="wrapper">
         <div class="box">1</div>
@@ -67,5 +93,6 @@
         <div class="box">5</div>
         <div class="box">6</div>
     </div>
+    
 </body>
 </html>

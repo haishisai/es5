@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div style="height: 100px; width: 100px; background-color: chartreuse;" ></div>
+    <div style="height: 100px; width: 100px; background-color: chartreuse;" ></div>
+    <div style="height: 100px; width: 100px; background-color:red;" ></div>
+    <script>
+        var div = document.getElementsByTagName('div')[0];
+        var div2 = document.getElementsByTagName('div')[1];
+        var div3 = document.getElementsByTagName('div')[2];
+        var demo = {
+            name : () => {
+                console.log(this) //window
+            },
+            say : () => {
+                div.addEventListener('click',function(){
+                    console.log(this)   // div    
+                } )
+            },
+            say2 : () => {
+                div2.addEventListener('click',() => {
+                    console.log(this)   // window
+                } )
+            },
+            say3 :function () {
+                div3.addEventListener('click',() => {
+                    console.log(this)   // name
+                } )
+            }
+
+        }
+        demo.name()
+        demo.say()
+        demo.say2()
+        demo.say3()
+
+        //   箭头函数有种漏的感觉  往上找最近的function 那个就是this
+    </script>
+</body>
+</html>

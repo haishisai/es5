@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div style="height: 100px; width: 100px;background-color: aqua;position: absolute;" ></div>
+    <script>
+        var cut = {
+            left: 0,
+            top: 0, 
+            dom: document.getElementsByTagName("div")[0], 
+            render: function () { 
+                //根据当前的尺寸、位置更新dom元素
+                this.dom.style.left = this.left + "px";
+                this.dom.style.top = this.top + "px";
+                console.log(this.dom.style.left)               
+            },
+     
+            moveEvent: function () { //关联移动的事件，调用该方法后，完成事件注册
+                this.dom.onmousedown = function (e) {
+                    //记录按下时鼠标的位置                   
+                    var x = e.pageX;
+                    var y = e.pageY;
+                    //按下时截图区域的位置
+                    var left = cut.left;
+                    var top = cut.top;
+                    window.onmousemove = function (e) {
+                        //核心逻辑
+                        var disX = e.pageX - x;
+                        var disY = e.pageY - y;
+                        
+                        cut.left = left + disX 
+                        cut.top = top + disY
+
+                        cut.render()
+                    }
+                    window.onmouseup = function (e) {
+                        window.onmousemove = null;
+                    }
+                }
+            }
+         
+           
+        }
+        cut.moveEvent()
+    </script>
+</body>
+
+</html>
