@@ -14,9 +14,7 @@
         Array.prototype.unique = function () {
             var newArr = []
             var obj = {};           
-            //this => arr   this[i]代表数组的每一项  
-            //把数组的数据 当做对象的名加进去 值随意
-            //最后  需要拿出的是的 对象的名字 this[i]    !!! 这里需要的是名 不是指  和往常相反
+            // 把数组的值 赋值给 对象的名
             for (var i = 0; i < this.length; i++) {
                 if (obj[this[i]] === undefined) {
                     obj[this[i]] = "abc";
@@ -27,6 +25,16 @@
         }
         var res = arr.unique()
         console.log(res)
+        //   数组需要循环 靠index取值   对象可以靠值取值
+
+
+
+        //  一个值是否在另一个数组里
+        function unique2 () {
+
+        }
+
+
     </script>
 
 </body>

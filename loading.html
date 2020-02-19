@@ -1,21 +1,26 @@
 
 <html>
-	<body style="background:#000;">
+    <body style="background:#000;">
+        <a href="" target="_blank" ></a>
 		<div style="margin-left:200px;width: 1200px;">
 		<script>
-			for(i=1;i<200;i++){
-				document.write('<img src="1 ('+i+').png" ><br>')
-				
-            }
-            
+            console.log(document.readyState) // 'loading'  
+
             document.onreadystatechange = function(){
-                console.log(document.readyState)  //interactive complete
-
+                console.log(document.readyState)  //interactive 文档解析完成     complete
                 if (document.readyState =='complete') {
-                    console.log(111)
+                    //document 加载完成（图片也下载完成）
+                    console.log('ok')
                 }
-
             }
+
+            document.addEventListener('DOMContentLoaded',function(){
+                console.log('dom解析完成')
+            },false)  //  这个相当于 $(document).ready(function(){})
+
+
+
+
 		</script>
 		</div>
 	</body>
