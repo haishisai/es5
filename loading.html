@@ -1,0 +1,22 @@
+
+<html>
+	<body style="background:#000;">
+		<div style="margin-left:200px;width: 1200px;">
+		<script>
+			for(i=1;i<200;i++){
+				document.write('<img src="1 ('+i+').png" ><br>')
+				
+            }
+            
+            document.onreadystatechange = function(){
+                console.log(document.readyState)  //interactive complete
+
+                if (document.readyState =='complete') {
+                    console.log(111)
+                }
+
+            }
+		</script>
+		</div>
+	</body>
+</html>

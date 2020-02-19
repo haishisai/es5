@@ -1,0 +1,14 @@
+.my-countdown,.my-countdown2{
+    text-align: center;
+}
+
+.hours::after {
+    content:':';
+    color: #424242;
+    margin-left: 8px;
+}
+.minutes::after {
+    content:':';
+    color: #424242;
+    margin-left: 8px;
+}
