@@ -8,17 +8,32 @@
 </head>
 <body>
     <script>
-    var obj = {
+    let obj = {
         name: 'ob',
         age: 23,
         sex: 'female',
         prop: 'err'
     }
-    for(var prop in obj){
+    for(let prop in obj){
         console.log(prop)  // name age sex  可以答应出对象的 属性名
         // console.log(obj.prop)  // err    这样写 是错误的！！！！
         console.log(obj[prop])
     }
+    console.log('-----')
+    let arr = ['abc','def','ooo']
+    for(let item of arr){
+        console.log(item) // 'abc' 'def' 'ooo'
+    }
+    for(let item of arr.entries()){
+        console.log(item) // [0, "abc"] [1, "def"] [2, "ooo"]
+    }
+    for(let [key,val] of arr.entries()){
+        console.log(key,val) // 0 "abc"
+    } 
+
+    arr.forEach((v) =>{console.log(v)})
+    // obj.forEach((v) =>{console.log(v)}) // 报错
+    // 遍历对象 还是只有 for in
     </script>
 </body>
 </html>
