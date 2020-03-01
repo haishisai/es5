@@ -53,15 +53,13 @@
         function drag2(el) {
             el.onmousedown = function (e) {
                 // e.stopPropagation() 
-                console.log(2)
                 var x = e.pageX;
                 var y = e.pageY;
                 var l = el.offsetLeft
                 var t = el.offsetTop
                 document.onmousemove = function (e) {
                     // 解决文字被选中时无法拖拽
-                    window.getSelection ? window.getSelection().removeAllRanges() : document.selection.empty();
-                    console.log(222)
+                    window.getSelection ? window.getSelection().removeAllRanges() : document.selection.empty()
                     // e.stopPropagation() 
                     el.style.left = l + e.pageX - x + 'px'
                     el.style.top = t + e.pageY - y + 'px'
