@@ -32,7 +32,7 @@ var hby = {
         }
         return frag;
     },
-    //随机整数 包含min max
+    //随机整数 包含min max  随机数
     randomNum: function (min, max) {
         return Math.floor(min + Math.random() * (max - min + 1));
     }

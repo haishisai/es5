@@ -175,7 +175,7 @@ var calender = {
             }
             
         }
-    }//  jq 一行就能搞定......  这段写的太垃圾了   classList.contains  
+    }//  jq 一行就能搞定......  这段写的太垃圾了   或者用这个 classList.contains  
 }
 
 calender.init(function (msg) {
