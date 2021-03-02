@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  debugger;
+  <div>
+  
+
+ 
+  </div>
+  <!--  -->
+  <script src="./public/jquery-3.4.1.js"></script>
+  <script>
+   
+
+   $(function(){
+			
+			$.ajax({
+				type:'POST'
+				,dataType:"jsonp"
+				,url:'http://localhost:9992/cors/info3'
+				,data:{}
+				,contentType:'application/json;charset=utf-8'
+				//,jsonp:"callback" //指定回调函数的名字。一般不改这个，默认callback
+				//,jsonpCallback:"myCallback"  //手动执行发送给服务器的callback参数名，否则由jquery自动帮我们生成，类似jQuery17207352806672191685_1544278219377
+				,success:function(data){
+				debugger;		    
+					alert("ajax: "+JSON.stringify(data));
+				}
+			});
+			
+		})
+
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    const arr1 = ['aaa', 'bbb']
+    const arr2 = [
+      {
+        id: 'aaa',
+        name: 'life'
+      }, {
+        id: 'bbb',
+        name: 'BBB'
+      },
+      {
+        id: 'ccc',
+        name: '我是ccc'
+      }
+    ]
+
+    const arr3 = []
+    arr1.forEach((e) => {
+      arr2.forEach((d) => {
+        if (e === d.id) {
+          arr3.push(d);
+        }
+      });
+    });
+    console.log(arr3);
+
+    const arr4 = [1, 2, 'dfd', 12, 1, 3, 2, 'aaa', 'ddd', 'aaa', 'dfd', false, NaN, NaN, { name: 1 }, { name: 1 }, false, true, true, undefined, undefined];
+    const arr5 = [];
+
+    arr4.forEach((e) => {
+      if (!arr5.includes(e)) {
+        if (typeof (e) === 'object') {
+          // 这里卡主
+        } else {
+          arr5.push(e)
+        }
+
+      }
+    })
+    console.log(arr5)
+
+    //判断2个对象的内容是否相同
+    function isObjectValueEqual(a, b) {
+      var aProps = Object.getOwnPropertyNames(a);
+      var bProps = Object.getOwnPropertyNames(b);
+      if (aProps.length != bProps.length) {
+        return false;
+      }
+      for (var i = 0; i < aProps.length; i++) {
+        var propName = aProps[i]
+
+        var propA = a[propName]
+        var propB = b[propName]
+        // 2020-11-18更新，这里忽略了值为undefined的情况
+        // 故先判断两边都有相同键名
+        if (!b.hasOwnProperty(propName)) return false
+        if ((typeof (propA) === 'object')) {
+          if (this.isObjectValueEqual(propA, propB)) {
+            // return true     这里不能return ,后面的对象还没判断
+          } else {
+            return false
+          }
+        } else if (propA !== propB) {
+          return false
+        } else { }
+      }
+      return true
+    }
+    var a = {
+      id: 1,
+      name: 2,
+      c: {
+        age: 3
+      }
+    };
+    var b = {
+      id: 1,
+      name: 2,
+      c: {
+        age: 3
+      }
+    }
+    console.log(isObjectValueEqual(a, b));//true
+  </script>
+</body>
+
+</html>

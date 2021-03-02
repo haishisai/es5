@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    div{
+      width: 100px;
+      height: 100px;
+      border: 1px solid rebeccapurple;
+      margin: 100px;
+    }
+  </style>
+</head>
+<body>
+  <div>
+    1212
+  </div>
+  <div>
+    1212
+  </div>
+  <script>
+    var a = 1;
+    var b = 2;
+    var msg = 44;
+
+    function swap0(a,b){
+      a = 'aaa'  //  这里的a 已经不是变量a  变成参a了   es6 禁止把参数设置成变量 太容易搞出问题
+      b = 'bbb'
+    }
+    swap0()
+    console.log(a,b)
+    function swap(x,y){
+      a = 33;  // 这里的a 是变量a
+      b = x
+      console.log('test')
+    }
+    swap(a,b);
+    console.log(a,b)
+
+    function test(ccc){
+      // let ccc = 22   报错
+    }
+
+    // 把变量 设置成参数会有麻烦 变量会保持不变（变成引用值？？）
+    // 所以 let 禁止定义 参数
+    // 参数需要放置 =号右边  未确定
+  </script>
+</body>
+</html>
