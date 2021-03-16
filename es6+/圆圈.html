@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    /* conic-gradient 只有谷歌浏览器有用！！！ */
+    .circle {
+      width: 300px;
+      height: 300px;
+      background: conic-gradient(#9ED110, #50B517, #179067, #476EAF, #9f49ac, #CC42A2, #FF3BA7, #FF5800, #FF8100, #FEAC00, #FFCC00, #EDE604);
+      border-radius: 50%;
+    }
+
+    .d1 {
+      width: 300px;
+      height: 300px;
+      background: conic-gradient(#000, red, #fff)
+    }
+
+    .shan1 {
+      width: 300px;
+      height: 300px;
+      position: absolute;
+      clip: rect(0 300px 300px 150px);
+      overflow: hidden;
+    }
+
+    .shan1::after {
+      content: '';
+      width: 100%;
+      height: 100%;
+      background: orange;
+      position: absolute;
+      clip: rect(0 150px 300px 0);
+      transform: rotate(10deg);
+      /* 只能绘制 1到180度 */
+      border-radius: 50%;
+      transition: all 1s linear;
+    }
+
+    .shan2 {
+      width: 300px;
+      height: 300px;
+      position: absolute;
+      clip: rect(0 300px 300px 150px);
+      overflow: hidden;
+    }
+
+    .shan2::after {
+      content: '';
+      width: 100%;
+      height: 100%;
+      background: orange;
+      position: absolute;
+      clip: rect(0 150px 300px 0);
+      transform: rotate(180deg);
+      /* 只能绘制 1到180度 */
+      border-radius: 50%;
+      transition: all 1s linear;
+    }
+
+    .box3 {
+      transform: rotate(180deg);
+      width: 300px;
+      height: 300px;
+    }
+
+    .shan3 {
+      width: 300px;
+      height: 300px;
+      position: absolute;
+      clip: rect(0 300px 300px 150px);
+      overflow: hidden;
+    }
+
+    .shan3::after {
+      content: '';
+      width: 100%;
+      height: 100%;
+      background: orange;
+      position: absolute;
+      clip: rect(0 150px 300px 0);
+      transform: rotate(0deg);
+      /* 只能绘制 1到180度 */
+      border-radius: 50%;
+      transition: all 1s linear;
+    }
+
+    .shan4 {
+      width: 300px;
+      height: 300px;
+      position: absolute;
+      clip: rect(0 300px 300px 150px);
+      overflow: hidden;
+    }
+
+    .shan4::after {
+      content: '';
+      width: 100%;
+      height: 100%;
+      background: orange;
+      position: absolute;
+      clip: rect(0 150px 300px 0);
+      transform: rotate(180deg);
+      /* 只能绘制 1到180度 */
+      border-radius: 50%;
+      transition: all 1s linear;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="circle"></div>
+  <div class="d1"></div>
+
+  <!-- 30°的扇形 -->
+  <div class="shan1"></div>
+  <div class="box3">
+    <div class="shan3"></div>
+  </div>
+  <div class="c1">click1</div>
+  <script>
+    let c1 = document.getElementsByClassName('c1')[0];
+    let shan1 = document.getElementsByClassName('shan1')[0];
+    let shan3 = document.getElementsByClassName('shan3')[0];
+    // 只是单纯的添加删除class 而已 可以简化
+    // 原理 2个半圆
+    c1.onclick = function () {
+      //开始流程
+      if (shan1.classList.contains("shan2")) {
+        if (shan3.classList.contains("shan4")) {
+          shan3.classList.remove("shan4");
+        } else {
+          shan3.classList.add("shan4");
+        }
+        setTimeout(function () {
+          shan1.classList.remove("shan2");
+        }, 1000)
+      } else {
+      //返回流程
+        shan1.classList.add("shan2");
+        setTimeout(function () {
+          if (shan3.classList.contains("shan4")) {
+            shan3.classList.remove("shan4");
+          } else {
+            shan3.classList.add("shan4");
+          }
+        }, 1000)
+      }
+    }
+
+  </script>
+</body>
+
+</html>

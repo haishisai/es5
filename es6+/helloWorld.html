@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo</title>
+
+    <style>
+        body {
+            background: #8de2f5;
+        }
+
+        .cool {
+            margin-top: 200px;
+            text-align: center;
+            font-size: 80px;
+            text-indent: 7px;
+            font-weight: bold;
+            color: #FFF;
+            text-shadow: 3px 3px 10px gray;
+        }
+
+        .cool span {
+            display: inline-block;
+            transition: transform 0.25s;
+        }
+
+        .cool span:hover {
+            cursor: pointer;
+            transform: translateY(-20px) rotate(10deg) scale(2);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="cool">Hello World!</div>
+</body>
+
+</html>
+
+<script>
+    'use strict'
+
+    let classCool = document.getElementsByClassName('cool')[0];
+
+    function addEffect(word) {
+        return [...word].map(item => `<span>${item}</span>`).join('');
+        //      字符串 →  数组                             数组 → 字符串
+    }
+
+    classCool.innerHTML = addEffect(classCool.textContent);
+
+</script>

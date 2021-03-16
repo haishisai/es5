@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    function start(list, returnVal, fn) {
+      setTimeout(function (name) {
+        var catList = list === '' ? name : list + ',' + name
+        fn(catList)
+      }, 200, returnVal)
+    }
+
+    start('', 'aaa', f1)
+
+    function f1(list) {
+      start(list, 'bbb', f2)
+    }
+
+    function f2(list) {
+      start(list, 'ccc', f3)
+    }
+
+    function f3(list) {
+      console.log(list)
+    }
+
+// Panther,Janguar,Lion
+
+
+  </script>
+</body>
+
+</html>

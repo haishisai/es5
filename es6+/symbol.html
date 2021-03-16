@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let Person = (function () {
+            let girlFriend = 'ming';
+            let money = ''
+            function P(name, wife, money) {
+                this.name = name;
+                this.wife = wife;
+                money = money
+                this.say = function () {
+                    console.log(girlFriend)
+                }
+                this.work = function () {
+                    money++
+                    console.log(money)
+                }
+            }
+            return P;
+        })();
+        let p1 = new Person('john', 'linlin', 1000);// new 的是person  person → p  实际new 的是p
+        console.log(p1, p1.girlFriend, p1.money) //P {name: "john"}
+        p1.say()
+        p1.work()
+        p1.work()
+        p1.work()
+        let p2 = Person()
+        let p3 = Person
+        console.log(p2) // undefined 
+        console.log(p3) // fn p
+        console.log('--------------')
+
+
+        let Person2 = (function () {
+
+            let _gender = Symbol('gender');
+
+            function P(name, gender) {
+                this.name = name;
+                this[_gender] = gender;
+            }
+            return P;
+        })();
+
+        let p5 = new Person2('john', 'man');
+        console.log(p5); //P {name: "john", Symbol(gender): "man"}
+        console.log(p5[Symbol('gender')]) //undefined
+    </script>
+</body>
+
+</html>

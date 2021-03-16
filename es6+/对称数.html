@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    let res = []
+    function getNumber() {
+      for (let i = 0; i < 100000; i++) {
+        let str = i + "";
+        let l = str.length;
+        if (l < 2) {
+          //各位数
+          res.push(i)
+        } else if (l % 2 == 0) {
+          // 长度为可以被2整除的数
+          let hreflength = l / 2;
+          let s1 = str.slice(0, hreflength); //前一半数字
+          let s2 = str.slice(hreflength); //后一半的数字
+          let s3 = reNum(s2) // 倒序后一半的数字
+          if (s1 == s3) {
+            res.push(i)
+          }
+        } else if (l % 2 == 1) {
+          // 长度为不可以被2整除的数
+          let hreflength = Math.floor(l / 2);
+          let s1 = str.slice(0, hreflength);
+          let s2 = str.slice(hreflength + 1);
+          let s3 = reNum(s2)
+          if (s1 == s3) {
+            res.push(i)
+          }
+        }else{
+          console.log('err')
+        }
+      }
+      //排序
+      res.sort((a, b) => a - b)
+      console.log(res)
+    }
+    // 倒序字符串
+    function reNum(e) {
+      var l = e.length
+      var res = "";
+      for (var i = 1; i <= l; i++) {
+        var msg1 = e.slice(l - i, l - i + 1); //     -1 从最后一位开始   不填 表示截取到结束    
+        res += msg1;
+      }
+      return res
+    }
+
+    getNumber()
+
+
+    // slice 剪切数组   字符串也能用   决定类数组 是否是数组
+    // var newArr = arr.slice（begin,end）  包含begin   不包含end
+    // var newArr = arr.slice（begin）  截取到结束 包含begin
+
+
+    function func(nums){
+        for(let num = 1; num <=nums; num ++){
+            let cut,start_number,end_number;
+            let num_length = String(num).length;
+            if(num_length%2 === 1){
+                // 如果字符串长度是奇数
+                cut = (num_length - 1)/2;
+                start_number = String(num).substr(0, cut);
+                end_number = String(num).substr(cut + 1);  
+            }else{
+                cut = num_length/2;
+                start_number = String(num).substr(0, cut);
+                end_number = String(num).substr(cut);
+            }
+            // 倒序字符串的方法 不错
+            if(start_number.split('').reverse().join('') === end_number){
+                console.log(num);
+            }
+        }
+    }
+    func(10000)
+  </script>
+</body>
+
+</html>

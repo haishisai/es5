@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 剩余
+        // 把剩余的合起来   作为剩余用 只能放在最后
+        function fn(a,b,...c){
+            console.log(a,b,c,c.length)
+        }
+        fn(1,2,3,4,5)  // 3,4,5 会成出一个数组变成c
+        fn(1,2,[3,4,5],[2,1]) //  数组里面 在放一个数组
+        
+
+        let obj2 = {
+            name : 'pd',
+            age : 12
+        }
+
+        // console.log(...obj2) // 报错 不能展开对象
+        console.log({...obj2}) // 展开对象 外面需要容器  需要一个对象的容器  数组不需要
+
+
+        console.log('---clone---')
+
+        let obj = {
+            name: 'pd',
+            age: 12,
+            say: function () {
+                console.log(this.name)
+            },
+            toy: ['ps4', 'ns']
+        }
+
+
+        let objClone = { ...obj }  // 特殊用法
+        objClone.name = 'pppddd'
+        objClone.money = 1111
+        objClone.toy.push('box')
+        console.log(obj)
+        console.log(objClone)        
+        //  结果  浅克隆
+
+
+        // 深克隆
+        function deepClone (obj) {
+          let str = JSON.stringify(obj)
+          // let newObj = eval('('+str+')')
+          return JSON.parse(str)
+        }
+
+        let c33 = deepClone(obj)
+        c33.toy.push('高达')
+        console.log( c33 )
+        console.log( obj )
+
+
+      
+
+    </script>
+</body>
+
+</html>

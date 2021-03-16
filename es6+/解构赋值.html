@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let [a,b,c] = [1,'a','abc'];
+        console.log(a,b,c);
+
+        let obj = {
+            name : 'pd',
+            age : 12,
+            job : 'abc',
+            school: 'dffdf'
+        }
+
+        let {
+            name,
+            age,
+            job:aaa,
+            d = 'noData',
+            school = 'xxx' 
+        } = obj
+        // 可以给 一个 默认值 
+        console.log(name,age,aaa,d,school)
+
+        let a1 = 1;
+        let a2 = 2;
+        [a1,a2] = [a2,a1];
+        console.log(a1,a2);
+
+        function getData(){
+
+
+            return {
+                tLeft: '20px',
+                tTop: '300px'
+            }
+        }
+
+        let {tLeft,tTop} = getData()
+        console.log(tLeft,tTop)
+        console.log('---1---')
+        const obj3 = {
+          name2 : 'ps',
+          money : 11111
+        }
+        let {money1,name2} = obj3
+        console.log( money1,name2) // 对象的结构辅助 顺序无关 必须要和键值一样
+    </script>
+</body>
+</html>

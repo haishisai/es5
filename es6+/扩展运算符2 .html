@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let str = 'abc';
+        let arr = ['car','house','bike'];
+        let obj = {
+            name : 'pd',
+            age : '12',
+            aaa : [1,2,3]
+        }
+        console.log(...str) // 分解了 a b c
+        console.log(...arr) // 分解了
+        // console.log(...obj) // 报错不能用
+
+        function gettype(...a){
+            console.log(typeof a,Object.prototype.toString.call(a),a )
+        }
+        gettype(str)  // ['abc']
+        gettype(arr)  // [array]
+        gettype(obj)  // [{}]
+        gettype(1,2,3)  //[1,2,3]  合并了 其实就是 剩余
+
+        let a1 = [...str];   //    [a,b,c]
+        let a2 = [...arr];   //   就是arr
+        let a3 = {...arr};   //   {0: "car", 1: "house", 2: "bike"}
+        let a4 = {...obj};  //    需要{}
+        console.log(a1,a1[0])
+        console.log(a2)
+        console.log(a3)
+        console.log(a4)
+
+        a1.forEach(element => {
+            console.log(element)  
+        });
+
+        console.log('---2---')
+        function t3(a,...args) {
+          console.log(a)
+          console.log(args)
+          console.log(...args)
+        }
+        t3(1,2,3,4,'a')
+
+
+        // 2个作用
+        // 1扩展  类型根据外面的容器
+        // 函数传参 可以吧剩余参数 合并成一个数组
+    </script>
+</body>
+</html>

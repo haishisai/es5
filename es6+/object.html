@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        let name = 'pd'
+        let age = 12
+
+        let obj = {
+            name, // name = name
+            age,
+            data () {
+            } // show: function(){}
+        }
+        console.log(obj)
+        let json1 = {a:1}
+        let json2 = {b:2,a:1213}
+        let json3 = {c:3}
+
+        // assign 合并对象
+        let obj2 = Object.assign({},json1,json2,json3)  // 后面的覆盖前面的 默认数据放前面
+        console.log(obj2)
+
+
+        //   赋值对象 或数组
+        let arr4 = [1,2,3];
+        let obj4 = {a:"a1",b:"a2"};
+
+        let arr44 = Object.assign([],arr4);
+        let obj44 = Object.assign({},obj4);
+
+        arr44.push('abc');
+        obj44.name = "pppddd"
+
+        console.log(arr4,arr44) //[1, 2, 3] (4) [1, 2, 3, "abc"]
+        console.log(obj4,obj44) // {a: "a1", b: "a2"} {a: "a1", b: "a2", name: "pppddd"}
+        // 算是浅度克隆
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let a = 0b11   // 0b 二进制
+        console.log(a)  // 3
+
+        let bb = 2**4  // 2的4次方
+
+        let num = 1122
+        console.log(Number.isNaN(1123))    //false
+        console.log(Number.isNaN("1123"))  //false
+        console.log(Number.isNaN("aaa"))   // false
+        console.log(Number.isNaN(true))    // false
+        console.log(Number.isNaN(undefined)) // false
+        console.log(Number.isNaN(NaN))  // true  //  is   NaN  只判断这个
+        console.log('----------------------')  //false
+        console.log(Number.isFinite("1123"))  //false
+        console.log(Number.isFinite(123))  //true
+        console.log(Number.isFinite(1.12))  //true
+        console.log(Number.isFinite('abc'))  //false
+
+        console.log(Number.isInteger(1.12))  //false  是不是整数
+        console.log(Number.isInteger(112))   // true
+    </script>
+</body>
+</html>

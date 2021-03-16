@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function Person(name) {
+            this.name = name
+            this.money = 30;
+            this.sayName = function () {
+                return "my name is " + this.name
+            }
+        }
+        Person.prototype.work = function () {
+            this.money++
+            return this.money
+        }
+        let p1 = new Person('pd');
+        console.log(p1.name, p1.sayName(), p1.work())
+
+
+        let bbb = 'money';
+        let aaa = 'work';
+
+
+
+        // class 没有提升功能 预编译 
+        class Person2 {
+            constructor (name,m) {
+                this.name = name;
+                this[bbb] = m;
+            }
+            sayName(){
+                return 'my name ' + this.name
+            }
+            [aaa](){
+                return ++this[bbb]
+            }
+        }
+        p2 = new Person2('hahah')
+        console.log(p2,p2.name,p2.sayName(),p2[aaa]())
+
+        // 继承
+        class Student extends Person2 {
+            constructor(name,m,skill){
+                super(name,m);
+                this.skill = skill
+            }
+        }
+        let p3 = new Student(1,2,'放荡')
+        console.log(p3)
+
+    </script>
+</body>
+
+</html>

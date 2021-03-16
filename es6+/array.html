@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+    </ul>
+    <script>
+         let linodes = document.getElementsByTagName('li')
+         let arr = [...linodes];
+         console.log(linodes)
+         arr.pop()
+         arr.push('li')
+         console.log(arr)
+         // 好像没什么意思
+
+        let arr2 = Array.from(arr);
+
+        arr2[0].style.color = 'red'
+        // 原始数组也改了
+
+        let arr3 = Array.from(linodes);
+        console.log('3',arr3) // 类数组 可以变成数组
+
+    </script>
+</body>
+</html>

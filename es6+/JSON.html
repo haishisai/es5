@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    const json = '{"result": true, "count": 42, "name": "pd"}';
+    const obj = JSON.parse(json);
+    console.log(obj);
+
+
+    let obj2 = {name:"pd", age: 12}
+    let str2 = JSON.stringify(obj2)
+    let newObj2 = JSON.parse(str2)
+    newObj2.money = 'a lot of'
+    console.log(newObj2,obj2)
+
+  </script>
+</body>
+
+</html>

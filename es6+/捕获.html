@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <ul>
+    <li>
+      <a>神雕侠侣</a>
+      <p>开始时间：1984-08-09</p>
+    </li>
+    <li>
+      <a>大话西游</a>
+      <p>开始时间：1989-08-09</p>
+    </li>
+    <li>
+      <a>天龙八部</a>
+      <p>开始时间：2000-08-09</p>
+    </li>
+  </ul>
+  <script>
+    let str = `<ul>
+      <li>
+        <a>神雕侠侣</a>
+        <p>开始时间：1984-08-09</p>
+      </li>
+      <li>
+        <a>大话西游</a>
+        <p>开始时间：1989-08-09</p>
+      </li>
+      <li>
+        <a>天龙八部</a>
+        <p>开始时间：2000-08-09</p>
+      </li>
+    </ul>`
+    const reg = /<li>.*?<a>(.*?)<\/a>.*?<p>(.*?)<\/p>/sg
+    const result = str.matchAll(reg);
+    // console.log(...result)
+    for(let v of result){
+      console.log(v)
+    }
+  </script>
+</body>
+
+</html>

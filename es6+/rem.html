@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            padding:0;
+            margin:0;
+        }
+        html{
+            font-size: 100px;
+        }
+        body{
+            font-size: 16px;
+        }
+      
+    </style>
+</head>
+<body>
+    <div>
+        <img src="./assets/timg.jpg" style="width:8rem ;">
+    </div>
+    <div>
+        <img src="./assets/timg.jpg" style="width:6rem ;">
+    </div>
+    <div>
+        <img src="./assets/222.jpg" style="width:6rem ;">
+    </div>
+    <script>
+        console.log(window.innerWidth)
+        
+        window.onload = function(){
+            var htmlNode = document.getElementsByTagName('html')[0];            
+            htmlNode.style.fontSize = 100 * window.innerWidth / 800 + 'px'
+        }
+
+        window.onresize = function(){
+            var htmlNode = document.getElementsByTagName('html')[0];            
+            htmlNode.style.fontSize = 100 * window.innerWidth / 800 + 'px'
+        }
+        //  改变 html font-size
+    </script>
+</body>
+</html>

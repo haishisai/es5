@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        
+        function fn(a){
+            // let a = 2  // 错误 a已经被定义了
+            console.log(a)
+        }
+        fn(1212)
+
+
+       
+
+        function show2 () {
+            let msg = Array.prototype.slice.call(arguments);  // 类数组 → 数组
+            let res = msg.sort(function(a,b){
+                return a-b;
+            })
+            console.log(res)
+            console.log(msg.sort())  // 直接写 字符串排序
+        }
+        show2(131,176,67,123,12,33)
+
+
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script src='./axios.js' ></script>
+  <script>
+    
+    async function test () {
+      let a1 = await axios.get('http://localhost:9000/api/user/a')
+      return a1.data
+    }
+    
+    test()
+
+    //async 函数返回一个Promise 成功状态 值为return 的值 
+    // throw 用抛出可以改变promise的状态
+  </script>
+</body>
+</html>
