@@ -26,20 +26,21 @@
             }
         }
         demo2()   // dom d1
-        var name = "quanju"
+        var name = "全局"
         var a = {
-            name: "aaa",
+            name: "我是a",
             say: function () {
-
                 console.log(this.name);
                 console.log(this);
             }
         }
+        a.say()
+        console.log('---1---')
         var b = {
             name: "bbb",
             say: function (fun) {
-                console.log(this)   //this b 这个对象   function() 前面的say是b属性 即对应b
-                fun()  // quanju  等于 放入了 一个function  前面没有调用 所以this 对象是window
+                console.log(this.name)   //this b 这个对象   function() 前面的say是b属性 即对应b
+                fun()  // ==>全局  相当于传入function  前面没有调用 所以this 对象是window
 
             }
         }
@@ -49,7 +50,7 @@
         })()      
 
 
-        // 个人总结  function  this 指向function 前面的对象    如果function前面没有东西那么 指向window  全局就是
+        // 总结  function  this 指向function 前面的对象    如果function前面没有东西那么 指向window  全局就是
 
         console.log('------------')
 

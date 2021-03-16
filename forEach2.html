@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    let arr = [1,2,3,4,5];
+    arr.forEach(e => {
+      console.log(e)
+      if(e===3){
+        return
+      }
+      console.log(e+'aaa')
+    })
+    // 循环中 return 只能中断当前圈 之后会继续下一次循环
+  </script>
+</body>
+</html>

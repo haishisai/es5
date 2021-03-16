@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body {
+      height: 2000px;
+    }
+  </style>
+</head>
+
+<body>
+  <script>
+    
+    function aaa (a,b,c) {
+      this.t = 10
+      console.log(a+b+c+t)
+    }
+    
+    
+    function throttle(callback,wait,...callbackData) {
+      let start = 0;
+      return function () {
+        let now = Date.now();
+        if (now - start >= wait) {
+          callback(...callbackData)
+          start = now
+        }
+      }
+    }
+
+    // window.addEventListener('scroll', throttle(aaa, 500, 1,2,3))
+    window.addEventListener('mousemove', throttle(aaa, 500, 1,2,3))
+  </script>
+</body>
+
+</html>

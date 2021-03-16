@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body {
+      height: 2000px;
+    }
+  </style>
+</head>
+
+<body>
+  <script>
+
+    function aaa(a) {
+      this.t = 10
+      console.log(a + t)
+    }
+
+
+    function throttle(callback, wait) {
+      let start = 0;
+      return function (e) {
+        let now = Date.now();
+        if (now - start >= wait) {
+          callback.call(this, e)
+          start = now
+        }
+      }
+    }
+
+    window.addEventListener('mousemove', throttle(e => { aaa(1);}, 500))
+
+    // e MouseEVent事件对象
+  </script>
+</body>
+
+</html>
